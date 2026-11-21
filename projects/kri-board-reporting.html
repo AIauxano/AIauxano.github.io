@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KRI Dashboard and Board Risk Memo · GRC Portfolio</title>
+<meta name="description" content="Designed key risk indicators tied to risk appetite and wrote a two-page Audit and Risk Committee memo that leads with decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 9.1, 9.2</p>
+<h1>KRI Dashboard and Board Risk Memo</h1>
+<p class="intro">Designed key risk indicators tied to risk appetite and wrote a two-page Audit and Risk Committee memo that leads with decisions.</p>
+<div class="chips"><span>NIST CSF 2.0 Govern</span><span>Risk appetite</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;9.1&quot;, &quot;9.2&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Metric design</li><li>Dashboards</li><li>Board communication</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_KRI, T_BoardMemo)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>The board chair asked for a cyber risk briefing: what could hurt the company and whether management has it in hand.</p>
+<h2>Approach</h2><ol><li>Defined KRIs with formula, source, owner and thresholds tied to appetite.</li><li>Charted six months of data with automatic red, amber and green status.</li><li>Wrote the memo: bottom line, top five risks, assurance calendar, decisions requested.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>KRI</th><th>Jun 2026</th><th>Nov 2026</th><th>Status</th></tr></thead><tbody><tr><td>Critical vulns past SLA</td><td>41%</td><td>22%</td><td>Improving, still amber</td></tr><tr><td>Offboarding within SLA</td><td>58%</td><td>70%</td><td>Stuck: design problem</td></tr><tr><td>Tier 1 vendors assessed</td><td>10%</td><td>60%</td><td>Improving, still red</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Offboarding will not move until the HR-to-identity integration ships; the memo says so plainly.</li><li>Phishing click rate alone is a weak KRI; reporting rate is a better signal.</li></ul>
+<h2>Recommendations</h2><ul><li>Ask the committee to approve the $180k resilience spend using the FAIR figures.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

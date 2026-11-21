@@ -18,7 +18,7 @@
   if (pr.linkedin) links.push('<a class="btn" href="' + esc(pr.linkedin) + '">LinkedIn</a>');
   if (pr.github) links.push('<a class="btn" href="' + esc(pr.github) + '">GitHub</a>');
   if (pr.email) links.push('<a class="btn" href="mailto:' + esc(pr.email) + '">Email</a>');
-  links.push('<a class="btn" href="#work">See selected work</a>');
+  links.push('<a class="btn" href="#projects">See projects</a>');
   $('profile-links').innerHTML = links.join('');
   $('contact-links').innerHTML = links.slice(0, -1).join('') || '<span class="muted">Add your email and LinkedIn in data/portfolio.js.</span>';
 
@@ -47,15 +47,21 @@
     return '<div class="mod"><div class="name">' + esc(m) + '</div><div class="mini"><div style="width:' + Math.round(d / ls.length * 100) + '%"></div></div><small>' + d + ' of ' + ls.length + ' labs</small></div>';
   }).join('');
 
-  // Featured work
+  // Projects
   var byId = {}; labs.forEach(function (l) { byId[l.id] = l; });
-  $('featured').innerHTML = (P.featured || []).map(function (id) {
-    var l = byId[id]; if (!l) return '';
-    var body = '<p class="label">The task</p><p>' + esc(l.objective) + '</p>';
-    if (l.summary) body += '<p class="label">What I found</p><p>' + esc(l.summary) + '</p>';
-    var foot = l.link ? '<a href="' + esc(l.link) + '">View ' + esc(l.deliverable || 'work product') + ' &rarr;</a>' : '<span class="muted">' + esc(l.deliverable) + '</span>';
-    return '<article class="card"><div class="tag">Lab ' + esc(l.id) + ' · Week ' + l.week + ' · ' + esc(l.module) + '</div><h3>' + esc(l.title) + '</h3>' + body +
-      '<div class="foot">' + foot + badge(l.status) + '</div></article>';
+  var PR = window.PROJECTS || { grc: [], otherProjects: [] };
+  $('projects-grid').innerHTML = PR.grc.map(function (p) {
+    var ls = p.labs.map(function (id) { return byId[id]; }).filter(Boolean);
+    var d = ls.filter(function (l) { return l.status === 'complete'; }).length;
+    var st = ls.length && d === ls.length ? 'complete' : 'in-progress';
+    return '<article class="card"><div class="tag">Labs ' + esc(p.labs.join(', ')) + '</div><h3><a class="plain" href="projects/' + esc(p.slug) + '.html">' + esc(p.title) + '</a></h3>' +
+      '<p>' + esc(p.tagline) + '</p><div class="chips small">' + p.frameworks.slice(0, 3).map(function (f) { return '<span>' + esc(f) + '</span>'; }).join('') + '</div>' +
+      '<div class="foot"><a href="projects/' + esc(p.slug) + '.html">Read the project &rarr;</a>' + badge(st) + '</div></article>';
+  }).join('');
+  $('other-projects').innerHTML = PR.otherProjects.map(function (o) {
+    var foot = o.link ? '<a href="' + esc(o.link) + '">View on GitHub &rarr;</a>' : '<span class="muted">Private repository · code available on request</span>';
+    return '<article class="card"><div class="tag">' + esc(o.stack.join(' · ')) + '</div><h3>' + esc(o.title) + '</h3><p>' + esc(o.desc) + '</p>' +
+      '<p class="label">GRC relevance</p><p>' + esc(o.grc) + '</p><div class="foot">' + foot + '</div></article>';
   }).join('');
 
   // Timeline

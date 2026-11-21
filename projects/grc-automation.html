@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automated Control Evidence with Python · GRC Portfolio</title>
+<meta name="description" content="Re-performed the offboarding test in code across the full population and extended it to AWS IAM, which surfaced a terminated admin&#x27;s access key still in use.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 10.2</p>
+<h1>Automated Control Evidence with Python</h1>
+<p class="intro">Re-performed the offboarding test in code across the full population and extended it to AWS IAM, which surfaced a terminated admin&#x27;s access key still in use.</p>
+<div class="chips"><span>SOC 2 CC6.2</span><span>Continuous control monitoring</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;10.2&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Python (pandas)</li><li>Evidence automation</li><li>Reconciliation</li></ul><h3>Artifacts</h3><ul><li><a href="files/check_evidence.py">check_evidence.py</a></li><li><a href="files/hr_terminations.csv">hr_terminations.csv</a></li><li><a href="files/okta_users.csv">okta_users.csv</a></li><li><a href="files/iam_credential_report.csv">iam_credential_report.csv</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>Manual control tests sample a few items a year. Automation tests every item, every week, and leaves a reproducible evidence trail.</p>
+<h2>Approach</h2><ol><li>Loaded HR, Okta and AWS IAM exports into pandas.</li><li>Computed business-day lag, still-active accounts, post-termination logins and orphan accounts.</li><li>Flagged console users without MFA and access keys older than 90 days.</li><li>Reconciled with the manual workpaper and hashed each input file.</li></ol>
+<h2>Analysis</h2><pre><code>LKP-AC-04: 3 of 10 terminations are exceptions
+Chen Wei       lag 4  active No   login after term No
+Elijah Grant   lag 3  active No   login after term Yes
+Ivan Novak     lag 6  active Yes  login after term Yes
+
+Active Okta accounts with no HR record: tom.kessler
+
+AWS IAM: 4 users need action
+rbooker        console user without MFA
+deploy-bot     key 604 days old
+inovak         key 276 days old, used Nov 2 after termination
+legacy-recon   key 1,236 days old</code></pre>
+<h2>Findings</h2><ul><li>The script matched the manual test exactly.</li><li>inovak&#x27;s AWS key shows privileged access outside the identity provider: a design gap and a likely incident.</li></ul>
+<h2>Recommendations</h2><ul><li>Bring all AWS human access under SSO; run the script weekly and keep hashed evidence.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

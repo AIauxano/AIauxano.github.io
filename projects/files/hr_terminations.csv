@@ -1,0 +1,11 @@
+employee_id,name,worker_type,termination_date,department
+E1041,Alicia Moreno,Employee,2026-10-02,Sales
+E1077,Ben Ortiz,Employee,2026-10-05,Engineering
+E1102,Chen Wei,Employee,2026-10-07,Support
+E1118,Dara Fitzgerald,Employee,2026-10-09,Finance
+E1123,Elijah Grant,Employee,2026-10-14,Engineering
+E1130,Farah Haddad,Employee,2026-10-16,Marketing
+E1146,Gus Petrov,Employee,2026-10-20,Engineering
+E1152,Hana Sato,Employee,2026-10-23,Sales
+E1167,Ivan Novak,Employee,2026-10-28,IT
+E1171,Jade Wilson,Employee,2026-10-30,Support

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Access Control Policy, Standard and Exception · GRC Portfolio</title>
+<meta name="description" content="Rewrote an untestable 2021 policy into a policy plus measurable standard, set decision rights with a RACI, and decided an exception for an unsupported server in PCI scope.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 2.1, 2.2, 2.3</p>
+<h1>Access Control Policy, Standard and Exception</h1>
+<p class="intro">Rewrote an untestable 2021 policy into a policy plus measurable standard, set decision rights with a RACI, and decided an exception for an unsupported server in PCI scope.</p>
+<div class="chips"><span>NIST SP 800-63B</span><span>PCI DSS v4.0.1</span><span>ISO/IEC 27001:2022</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;2.1&quot;, &quot;2.2&quot;, &quot;2.3&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Policy writing</li><li>Governance design</li><li>Exception management</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_RACI, T_PolicyReview, T_Exception)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>Larkspur's access policy said passwords change every 30 days, IT reviews access "periodically", and remote access goes through a VPN the company no longer owns. Separately, engineering asked for a 12-month patching exception for a Windows Server 2012 R2 box that reconciles card settlements.</p>
+<h2>Approach</h2><ol><li>Scored each legacy line: testable, current, owned.</li><li>Separated policy (what and why) from standard (numbers) and procedure (tool steps).</li><li>Reconciled NIST SP 800-63B (no forced rotation) with PCI DSS 8.3.9 (90-day rotation when a password is the only factor).</li><li>Built a RACI with one Accountable per activity and tested it against who would really sign.</li><li>Assessed the exception: support status, PCI scope, compensating controls, duration, approver.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Legacy line</th><th>Problem</th><th>Rewrite</th></tr></thead><tbody><tr><td>Change passwords every 30 days</td><td>Contradicts current NIST guidance</td><td>MFA everywhere; 12+ character minimum; no forced rotation</td></tr><tr><td>IT will review access periodically</td><td>Untestable; wrong owner</td><td>System owners review High systems every 90 days, others every 180</td></tr><tr><td>Users should not share accounts where possible</td><td>Untestable</td><td>Shared accounts prohibited unless registered as an exception</td></tr><tr><td>Use the Barracuda VPN</td><td>Tool retired</td><td>Tool names moved to procedures</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Requiring MFA everywhere removes PCI 8.3.9&#x27;s rotation rule, so both sources are satisfied.</li><li>The exception server lost all security updates in October 2026 and handles card data, so it needs a QSA-reviewed compensating control.</li><li>Risk acceptance belongs to the business owner (CTO), not the CISO.</li></ul>
+<h2>Recommendations</h2><ul><li>Approve the exception for 90 days, not 12 months, conditional on dated migration milestones.</li><li>Compensating controls: isolated segment, no internet, allowlisting, EDR and alerts on new outbound connections.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

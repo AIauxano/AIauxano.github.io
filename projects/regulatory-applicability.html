@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regulatory Applicability and Control Crosswalk · GRC Portfolio</title>
+<meta name="description" content="Worked out which laws, contracts and frameworks bind a US/EU payments company, then mapped one control set across four frameworks so each control is tested once and reused.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 1.1, 1.2</p>
+<h1>Regulatory Applicability and Control Crosswalk</h1>
+<p class="intro">Worked out which laws, contracts and frameworks bind a US/EU payments company, then mapped one control set across four frameworks so each control is tested once and reused.</p>
+<div class="chips"><span>PCI DSS v4.0.1</span><span>GDPR</span><span>DORA</span><span>SOC 2</span><span>ISO/IEC 27001:2022</span><span>NIST CSF 2.0</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;1.1&quot;, &quot;1.2&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Regulatory scoping</li><li>Framework mapping</li><li>Executive memo writing</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_Applicability, T_Crosswalk)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>Larkspur Pay runs a payouts platform from North Carolina and an e-money entity in Dublin. It stores card numbers, pays 2.3M people (18% in the EU) and sells to enterprises that demand a SOC 2 report. The new CISO asked for one page: what is mandatory, what is market-driven, and what needs Legal.</p>
+<h2>Approach</h2><ol><li>Listed every obligation source: laws, regulators, card-brand contracts, customer contracts and certifications customers ask for.</li><li>For each one recorded the trigger fact at Larkspur, the proof required, cadence and owner.</li><li>Flagged items that turn on legal interpretation instead of guessing.</li><li>Mapped nine core controls to ISO 27001 Annex A, SOC 2 TSC, PCI DSS and CSF 2.0 using NIST CPRT, then checked each mapping against the standard&#x27;s own text.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Obligation</th><th>Type</th><th>Why it applies</th><th>Proof</th></tr></thead><tbody><tr><td>PCI DSS v4.0.1</td><td>Contractual</td><td>Level 1 service provider storing card numbers</td><td>QSA Report on Compliance, annual</td></tr><tr><td>GDPR</td><td>Law</td><td>Dublin entity and EU payees</td><td>Records, DPIAs, breach notices</td></tr><tr><td>DORA</td><td>Regulation</td><td>Dublin entity is an e-money institution</td><td>ICT risk framework, incident reports, third-party register</td></tr><tr><td>SOC 2 Type II</td><td>Market-driven</td><td>Enterprise deals depend on it</td><td>CPA attestation report</td></tr><tr><td>US state breach laws</td><td>Law</td><td>Payees in all 50 states</td><td>Notifications when triggered</td></tr><tr><td>SEC cyber disclosure</td><td>Not yet</td><td>Company is private; 2028 IPO planned</td><td>Prepare materiality process early</td></tr></tbody></table></div><h3>Crosswalk excerpt</h3><div class="tbl"><table><thead><tr><th>Control</th><th>ISO 27001</th><th>SOC 2</th><th>PCI DSS</th><th>CSF 2.0</th></tr></thead><tbody><tr><td>MFA for remote and admin access</td><td>A.8.5</td><td>CC6.1</td><td>8.4.1 to 8.4.3</td><td>PR.AA-03</td></tr><tr><td>User access reviews</td><td>A.5.15, A.5.18</td><td>CC6.2, CC6.3</td><td>7.2.4</td><td>PR.AA-05</td></tr><tr><td>Change approval</td><td>A.8.32</td><td>CC8.1</td><td>6.5.1</td><td>PR.PS-01</td></tr><tr><td>Vendor assessment</td><td>A.5.19 to A.5.22</td><td>CC9.2</td><td>12.8</td><td>GV.SC-06, GV.SC-07</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Four regimes are binding today; SOC 2 is optional in law but mandatory in practice.</li><li>Three items need Legal: FTC Safeguards Rule status, CCPA&#x27;s GLBA carve-outs, and Ireland&#x27;s NIS2 transposition.</li><li>Mappings are many-to-many and loose: PCI 7.2.4 sets a six-month review floor while the company standard says quarterly.</li></ul>
+<h2>Recommendations</h2><ul><li>Use NIST CSF 2.0 for board reporting and a single common control set mapped to PCI DSS and SOC 2.</li><li>Adopt the rule that the strictest requirement in scope sets the control.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

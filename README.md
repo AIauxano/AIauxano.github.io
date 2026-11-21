@@ -26,6 +26,14 @@ git push -u origin main
 
 Then do step 3.
 
+## Projects
+
+- `projects/*.html`: twelve GRC project write-ups, one per program module. Each page shows "In progress" until every lab it covers is marked `complete` in `data/portfolio.js`, then switches to "Complete" by itself.
+- `projects/files/`: the runnable code and data behind them (`fair_simulation.py`, `check_evidence.py`, the CSV exports) and the lab workbook.
+- `data/projects.js`: the project list. Under `otherProjects`, set `"link"` to a repository URL once you make that repository public; until then the card says "Private repository".
+
+When you finish a project's labs, replace or extend its write-up with your own findings and link your own deliverable files in the Artifacts list.
+
 ## Update your progress
 
 Open `data/portfolio.js` (on GitHub, click the file, then the pencil icon to edit in the browser).

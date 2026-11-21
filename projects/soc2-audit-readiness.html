@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOC 2 Type II Audit Readiness · GRC Portfolio</title>
+<meta name="description" content="Ran an auditor&#x27;s request list, prepared a control owner for a walkthrough, and wrote management responses and a remediation plan that fix root causes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 5.1, 5.2, 5.3</p>
+<h1>SOC 2 Type II Audit Readiness</h1>
+<p class="intro">Ran an auditor&#x27;s request list, prepared a control owner for a walkthrough, and wrote management responses and a remediation plan that fix root causes.</p>
+<div class="chips"><span>AICPA Trust Services Criteria</span><span>SOC 2 Type II</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;5.1&quot;, &quot;5.2&quot;, &quot;5.3&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>PBC management</li><li>Walkthrough preparation</li><li>Management responses</li><li>POA&amp;M</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_PBC_Tracker, T_Walkthrough, T_POAM)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>The auditor sent 12 requests for the January to June 2027 window, and draft exceptions followed from the control testing.</p>
+<h2>Approach</h2><ol><li>Assigned an owner, due date and evidence type to each request and wrote the likely gotcha.</li><li>Reviewed evidence before release: full period, system-generated, complete population, in scope.</li><li>Coached the VP Engineering for a change-management walkthrough, including the question teams miss: are console and Terraform changes covered?</li><li>Wrote management responses and a dated POA&amp;M.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Request</th><th>Gotcha caught before sending</th></tr></thead><tbody><tr><td>PBC-03 terminations</td><td>HR report excludes contractors; reconcile to Okta first</td></tr><tr><td>PBC-04 access reviews</td><td>Exports alone fail; reviewer decisions and removal tickets required</td></tr><tr><td>PBC-11 board minutes</td><td>Fails if security never reached the agenda</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Strong responses name the system cause, not a person.</li><li>A lookback on post-termination access belongs in the remediation plan.</li></ul>
+<h2>Recommendations</h2><ul><li>Track every request in one tracker with overdue flags; never send unreviewed evidence.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

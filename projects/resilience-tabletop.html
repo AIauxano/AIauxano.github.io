@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Impact Analysis and Ransomware Tabletop · GRC Portfolio</title>
+<meta name="description" content="Set recovery targets from business impact, exposed a 24-hour data-loss gap in the payouts platform, and facilitated a six-inject executive tabletop.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 8.1, 8.2</p>
+<h1>Business Impact Analysis and Ransomware Tabletop</h1>
+<p class="intro">Set recovery targets from business impact, exposed a 24-hour data-loss gap in the payouts platform, and facilitated a six-inject executive tabletop.</p>
+<div class="chips"><span>NIST SP 800-61 Rev. 3</span><span>DORA resilience testing</span><span>PCI DSS 12.10.2</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;8.1&quot;, &quot;8.2&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>BIA</li><li>RTO / RPO</li><li>Tabletop facilitation</li><li>After-action reporting</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_BIA, T_Tabletop, T_AAR)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>No recovery time objective existed for payouts, and the incident plan had never been exercised.</p>
+<h2>Approach</h2><ol><li>Interviewed process owners for impact at 1, 8, 24 and 72 hours.</li><li>Set MTPD, RTO and RPO and compared against current capability.</li><li>Designed a ransomware scenario starting at the outsourced support vendor, with six timed injects.</li><li>Ran a hot wash and wrote an after-action report with owned, dated actions.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Process</th><th>RTO target</th><th>RPO target</th><th>Today</th></tr></thead><tbody><tr><td>Payout processing</td><td>4h</td><td>Near zero</td><td>RPO up to 24h; restores untested</td></tr><tr><td>Card authorization</td><td>4h</td><td>Zero</td><td>Same gap</td></tr><tr><td>Payroll</td><td>Days</td><td>24h</td><td>Adequate</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Daily snapshots cannot meet payouts&#x27; recovery point; the gap feeds risk R-01.</li><li>Nobody could say who has authority to halt payouts.</li></ul>
+<h2>Recommendations</h2><ul><li>Add halt authority to the IR decision table.</li><li>Protect payouts and card authorization first; payroll can wait.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

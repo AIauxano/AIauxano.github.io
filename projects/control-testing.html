@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Testing: Offboarding and Change Management · GRC Portfolio</title>
+<meta name="description" content="Tested two key controls the way an auditor would, found a terminated IT admin still active and code merged without approval, and caught an incomplete population before relying on it.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 4.3, 4.4</p>
+<h1>Control Testing: Offboarding and Change Management</h1>
+<p class="intro">Tested two key controls the way an auditor would, found a terminated IT admin still active and code merged without approval, and caught an incomplete population before relying on it.</p>
+<div class="chips"><span>SOC 2 CC6.2, CC8.1</span><span>PCI DSS 6.5.1, 8.2.5</span><span>ISO/IEC 27001 A.5.18, A.8.32</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;4.3&quot;, &quot;4.4&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Audit sampling</li><li>Population completeness</li><li>Workpapers</li><li>Root-cause analysis</li></ul><h3>Artifacts</h3><ul><li><a href="files/hr_terminations.csv">Termination report (CSV)</a></li><li><a href="files/okta_users.csv">Okta export (CSV)</a></li><li><a href="files/pull_requests.csv">Change sample (CSV)</a></li><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_Test_Offboarding, T_Test_Change)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>Two controls had to work for the SOC 2 window: access removed within one business day of termination, and every production change approved by someone other than the author before merge.</p>
+<h2>Approach</h2><ol><li>Reconciled the HR termination report to the Okta export before sampling.</li><li>Tested all 10 October terminations (small population), counting business-day lag and logins after termination.</li><li>Confirmed the change population (1,840 merges) against the deploy log, then tested 15 merges on four attributes.</li><li>Wrote workpapers with procedure, results, exceptions, conclusion and root cause.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Item</th><th>Result</th><th>Why</th></tr></thead><tbody><tr><td>Chen Wei</td><td>Exception</td><td>Disabled 4 business days late</td></tr><tr><td>Elijah Grant</td><td>Exception</td><td>3 days late; logged in on a Saturday after termination</td></tr><tr><td>Ivan Novak (IT admin)</td><td>Exception</td><td>Still active 6 business days later; logged in after termination</td></tr><tr><td>tom.kessler</td><td>Population gap</td><td>Active contractor with no HR record; contractors tracked in a spreadsheet</td></tr><tr><td>PR 4519, 4548</td><td>Exception</td><td>Admin bypass; 4548 also failed automated checks</td></tr><tr><td>PR 4527</td><td>Exception</td><td>Approved 7 minutes after merge, in the card vault repo</td></tr><tr><td>PR 4540</td><td>Exception</td><td>Emergency change never reviewed</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Offboarding: 3 of 10 exceptions (30%) plus an incomplete population. Not effective.</li><li>Change management: 4 of 15 exceptions (27%); three involve admin bypass. Not effective.</li><li>Root causes are design problems (a manual email handoff, unrestricted bypass), so reminders will not fix them.</li></ul>
+<h2>Recommendations</h2><ul><li>Connect Workday to Okta for same-day automated deprovisioning; bring contractors into Workday.</li><li>Restrict branch-protection bypass and alert on every use.</li><li>Run a lookback on what the late-removed accounts accessed.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

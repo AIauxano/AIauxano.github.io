@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Third-Party Risk: Tiering, SOC 2 Review and AI Vendor Due Diligence · GRC Portfolio</title>
+<meta name="description" content="Tiered 12 vendors by data and criticality, reviewed a card processor&#x27;s SOC 2 report, and ran focused due diligence on an LLM vendor with no audit report.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 6.1, 6.2, 6.3</p>
+<h1>Third-Party Risk: Tiering, SOC 2 Review and AI Vendor Due Diligence</h1>
+<p class="intro">Tiered 12 vendors by data and criticality, reviewed a card processor&#x27;s SOC 2 report, and ran focused due diligence on an LLM vendor with no audit report.</p>
+<div class="chips"><span>SOC 2</span><span>DORA register of information</span><span>GDPR Art. 28</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;6.1&quot;, &quot;6.2&quot;, &quot;6.3&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Vendor tiering</li><li>SOC 2 report review</li><li>CUEC mapping</li><li>Contract clauses</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_VendorRegister, T_SOC2_Review, T_DueDiligence)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>Procurement checked price only. A 60-person outsourced support team and an AI vendor were handling payee bank details with no assessment on file.</p>
+<h2>Approach</h2><ol><li>Scored data sensitivity, access and criticality; derived tier and required due diligence.</li><li>Read the card processor&#x27;s SOC 2: period, opinion, exceptions, carve-outs, complementary user entity controls.</li><li>Built a 15-20 question questionnaire for the LLM vendor instead of a 300-question form, then listed required contract clauses.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Vendor</th><th>Tier</th><th>Why</th></tr></thead><tbody><tr><td>Bayview Support (Manila)</td><td>Tier 1</td><td>60 outside agents see payee bank details; no assessment</td></tr><tr><td>Northlight AI</td><td>Tier 1</td><td>Full ticket text despite $22k spend</td></tr><tr><td>Tessera Issuing</td><td>Tier 1</td><td>Card data; very hard to replace (concentration risk)</td></tr><tr><td>PromoCrate</td><td>Tier 3</td><td>Office addresses only</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Spend is a poor proxy for risk.</li><li>The SOC 2 period ended September 30: a bridge letter is needed.</li><li>&quot;Approvals obtained verbally&quot; is a design weakness, not a fix.</li><li>One CUEC maps to Larkspur&#x27;s own failed offboarding control.</li></ul>
+<h2>Recommendations</h2><ul><li>Accept Tessera with follow-ups and a 90-day check-in.</li><li>Require no-training, 30-day deletion, 48-hour breach notice and subprocessor notice from the AI vendor.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>

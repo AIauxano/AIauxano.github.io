@@ -1,0 +1,16 @@
+pr,repo,author,approver,approved_at,merged_by,merged_at,checks,label,retro_review,retro_date
+4512,payouts-api,kliu,asingh,2026-07-02 10:14,kliu,2026-07-02 10:40,pass,,,
+4519,payouts-api,jtan,,,jtan,2026-07-09 02:11,pass,admin-bypass,,
+4527,card-vault,asingh,rpatel,2026-07-15 15:02,asingh,2026-07-15 14:55,pass,,,
+4533,payouts-api,mbrooks,,,mbrooks,2026-07-21 03:40,pass,emergency,SEC-882,2026-07-22 00:00
+4540,dashboard,ewong,,,ewong,2026-07-28 23:05,pass,emergency,,
+4548,payouts-api,dkim,lfoster,2026-08-04 11:30,jtan,2026-08-04 11:52,fail,admin-bypass,,
+4551,dashboard,lfoster,ewong,2026-08-11 09:20,lfoster,2026-08-11 09:45,pass,,,
+4563,payouts-api,rpatel,kliu,2026-08-18 14:00,rpatel,2026-08-18 14:31,pass,,,
+4570,card-vault,asingh,mbrooks,2026-08-25 16:12,asingh,2026-08-25 16:20,pass,,,
+4577,payouts-api,ewong,dkim,2026-09-01 10:05,ewong,2026-09-01 10:30,pass,,,
+4584,dashboard,mbrooks,lfoster,2026-09-08 13:44,mbrooks,2026-09-08 14:02,pass,,,
+4590,payouts-api,kliu,rpatel,2026-09-15 09:10,kliu,2026-09-15 09:33,pass,,,
+4596,card-vault,rpatel,asingh,2026-09-22 11:00,rpatel,2026-09-22 11:15,pass,,,
+4603,payouts-api,dkim,ewong,2026-09-25 15:30,dkim,2026-09-25 15:58,pass,,,
+4611,dashboard,lfoster,kliu,2026-09-29 10:00,lfoster,2026-09-29 10:21,pass,,,

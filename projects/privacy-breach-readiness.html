@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Compliance: ROPA, DPIA and Breach-Notification Clock · GRC Portfolio</title>
+<meta name="description" content="Mapped a support data flow across three countries, ran a DPIA on an AI tool already in production, and showed the binding breach deadline was DORA&#x27;s four hours, not GDPR&#x27;s 72.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="project">
+<header class="site-header"><div class="wrap nav"><a class="brand" href="../index.html" id="brand">GRC Portfolio</a>
+<nav><a href="../index.html#projects">All projects</a><a href="../index.html#timeline">Program</a><a href="../index.html#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero p-hero"><div class="wrap">
+<p class="eyebrow">GRC project · Labs 7.1, 7.2, 7.3, 7.4</p>
+<h1>Privacy Compliance: ROPA, DPIA and Breach-Notification Clock</h1>
+<p class="intro">Mapped a support data flow across three countries, ran a DPIA on an AI tool already in production, and showed the binding breach deadline was DORA&#x27;s four hours, not GDPR&#x27;s 72.</p>
+<div class="chips"><span>GDPR Arts. 30, 33-35</span><span>DORA incident reporting</span><span>US state breach laws</span></div>
+<div class="status-note" id="status-note" data-labs="[&quot;7.1&quot;, &quot;7.2&quot;, &quot;7.3&quot;, &quot;7.4&quot;]"></div>
+</div></section>
+<section><div class="wrap p-body">
+<aside><h3>Skills shown</h3><ul><li>Data mapping</li><li>DPIA</li><li>Regulatory deadlines</li><li>Obligations register</li></ul><h3>Artifacts</h3><ul><li><a href="files/GRC_Lab_Workbook.xlsx">Lab workbook (T_Obligations, T_ROPA, T_DPIA, T_BreachClock)</a></li></ul></aside>
+<article>
+<h2>The situation</h2><p>Support tickets with EU bank details flowed to agents in the Philippines and an LLM API in the US. Then a scenario breach exposed 18,400 tickets.</p>
+<h2>Approach</h2><ol><li>Turned GDPR, DORA and PCI text into testable requirements tied to controls and owners.</li><li>Mapped the flow and wrote the Article 30 record, including transfers and safeguards.</li><li>Scored DPIA risks before and after measures and made a recommendation for a live tool.</li><li>Built a notification matrix across every regime triggered.</li></ol>
+<h2>Analysis</h2><div class="tbl"><table><thead><tr><th>Regime</th><th>Deadline (Eastern)</th></tr></thead><tbody><tr><td>DORA initial notice</td><td>Mon 18:00 (4h after classification)</td></tr><tr><td>Customer contracts</td><td>Wed 10:30 (48h)</td></tr><tr><td>GDPR Art. 33</td><td>Thu 10:30 (72h)</td></tr><tr><td>US states</td><td>Earliest 30 days</td></tr></tbody></table></div>
+<h2>Findings</h2><ul><li>Two international transfers needed safeguards (Philippines, US).</li><li>Bank details in free-text tickets fail data minimization; redaction at intake fixes most of it.</li><li>Teams that only know GDPR miss the DORA deadline.</li></ul>
+<h2>Recommendations</h2><ul><li>Pause sending bank-detail tickets to the AI tool until redaction and zero-retention are in place.</li><li>Name who classifies and who notifies in the first four hours.</li></ul>
+<p class="muted small">Context: Larkspur Pay is a fictional company in the Hands-On GRC Training Program. All names and data are invented.</p>
+<p><a href="../index.html#projects">&larr; Back to all projects</a></p>
+</article></div></section>
+</main>
+<footer class="wrap footer"><p>Larkspur Pay is a fictional company created for training. Nothing here is from a real employer.</p></footer>
+<script src="../data/portfolio.js"></script>
+<script>
+(function(){var P=window.PORTFOLIO||{},labs=P.labs||[],el=document.getElementById('status-note');
+var ids=JSON.parse(el.getAttribute('data-labs')),ls=labs.filter(function(l){return ids.indexOf(l.id)>=0;});
+var done=ls.filter(function(l){return l.status==='complete';}).length;
+var nm=(P.profile&&P.profile.name&&P.profile.name!=='Your Name')?P.profile.name:'';
+if(nm)document.getElementById('brand').textContent=nm;
+if(ls.length&&done===ls.length){el.innerHTML='<span class="badge complete">Complete</span> All labs in this project are finished.';}
+else{el.innerHTML='<span class="badge in-progress">In progress</span> '+done+' of '+ls.length+' labs complete. This page is a reference write-up of the project; it moves to Complete once I have worked every lab myself and linked my own deliverables.';}
+})();
+</script>
+</body></html>
