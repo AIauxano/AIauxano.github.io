@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GRC Portfolio</title>
+  <meta name="description" content="Hands-on governance, risk and compliance portfolio: 32 labs, 14 weeks, real GRC work products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" id="brand">GRC Portfolio</a>
+      <nav>
+        <a href="#progress">Progress</a>
+        <a href="#work">Selected work</a>
+        <a href="#timeline">Program</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Governance · Risk · Compliance</p>
+        <h1 id="name">Your Name</h1>
+        <p class="headline" id="headline"></p>
+        <p class="intro" id="intro"></p>
+        <div class="links" id="profile-links"></div>
+      </div>
+    </section>
+
+    <section id="progress" class="band">
+      <div class="wrap">
+        <h2>Program progress</h2>
+        <div class="stats" id="stats"></div>
+        <div class="bar-outer" aria-label="Overall completion"><div class="bar-inner" id="overall-bar"></div></div>
+        <p class="muted" id="overall-label"></p>
+        <div class="modules" id="modules"></div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <h2>Selected work</h2>
+        <p class="lead">Five work products chosen to show the core of the job: quantifying risk, testing controls, assessing a vendor, protecting personal data and reporting to a board.</p>
+        <div class="cards" id="featured"></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap case">
+        <div>
+          <h2>The case: Larkspur Pay</h2>
+          <p>The labs run inside a fictional B2B payments company: $96M revenue, 420 staff in the US and Ireland, card data in scope for PCI DSS, an EU e-money entity under GDPR and DORA, a first SOC 2 Type II window opening, and an AI pilot launched without review.</p>
+          <p>Every dataset came with planted problems, the way evidence arrives on the job: a terminated admin still active in Okta, code merged without approval, a vendor report with exceptions, and a breach whose binding deadline was four hours, not 72.</p>
+        </div>
+        <ul class="facts">
+          <li><span>32</span>hands-on labs</li>
+          <li><span>14</span>weeks</li>
+          <li><span>~165</span>hours of practice</li>
+          <li><span>9</span>frameworks and laws applied</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="wrap">
+        <h2>Program, week by week</h2>
+        <div class="filters" id="filters">
+          <button data-f="all" class="on">All</button>
+          <button data-f="complete">Complete</button>
+          <button data-f="in-progress">In progress</button>
+          <button data-f="not-started">Not started</button>
+        </div>
+        <ol class="weeks" id="weeks"></ol>
+      </div>
+    </section>
+
+    <section id="skills" class="band">
+      <div class="wrap two-col">
+        <div>
+          <h2>Skills</h2>
+          <ul class="skills" id="skill-list"></ul>
+        </div>
+        <div>
+          <h2>Frameworks and tools</h2>
+          <div class="chips" id="tools"></div>
+          <h2 class="mt">Certifications</h2>
+          <ul class="certs" id="certs"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="lead">Open to GRC analyst, IT risk and compliance roles.</p>
+        <div class="links" id="contact-links"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Larkspur Pay is a fictional company created for training. All data in these work products is invented; nothing here is from a real employer.</p>
+  </footer>
+
+  <script src="data/portfolio.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
